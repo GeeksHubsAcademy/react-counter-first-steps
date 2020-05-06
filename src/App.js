@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState,Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Person from './components/Persona';
+import Counter from './components/CounterFuncional';
 function App() {
+  const [show, setShow] = useState(true)
+  const [inicial, setinicial] = useState(10)
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Person name="David" surname="Pinilla" age={27} />
-        <Person name="Juan" surname="Pérez" age={127} />
-        <Person name="David" surname="Ochando" age={97} />
+        {/* ngIf */}
+       {show && <Fragment>
+        <Counter inicial={inicial}/>
+        <Counter inicial={5}/>
+       </Fragment>
+        }
+        <input type="number" onChange={(e)=>setinicial(+e.target.value)}/>
+        <button onClick={()=>setShow(!show)}>Eliminar/mostrar counters</button>
       </header>
     </div>
   );
