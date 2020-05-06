@@ -8,7 +8,7 @@ class MovieList extends Component {
             movies:[]
         }
     }
-    componentDidMount() {//componentDidMount() equivalente
+    componentDidMount() {// equivalente ngOnInit
         axios.get('https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES')//en axios en res.data esta el body
             .then(res => this.setState({movies:res.data.results}))
             .catch(console.error)

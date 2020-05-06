@@ -1,19 +1,19 @@
 import React, { useState,useEffect } from 'react';
 const Counter = props => {
     const [state, setState] = useState({
-        count: props.inicial,
+        count: props.initial,
         isRed: false
     });
     useEffect(() => { //componentDidMount
         return  () => {//componentWillUnmount
             console.log('componente desmontado')
         }
-    }, [])
+    }, []);
     useEffect(() => {//componentDidUpdate
-        setState({count:props.inicial})
-    }, [props.inicial])
+        setState({count:props.initial});
+    }, [props.initial]);
     const increment = () => {
-        setState({ count: state.count + 1, isRed: !state.isRed })
+        setState({ count: state.count +props.step, isRed: !state.isRed })
     }
     return (
         <div onClick={increment} style={{ color: state.isRed ? 'red' : 'white' }}>
